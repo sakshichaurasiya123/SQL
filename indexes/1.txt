@@ -1,0 +1,18 @@
+ explain select * from employeedetail where salary=23000;
+
+// here explain is used for checking how many rows has
+ scanned by my query engine for searching this record, if we will not used indexing.
+indexing .
+
+
+//We can add indexing in particular column, wherenever we apply searching based on any column then indexing
+firstly sort that column and then search it.
+
+
+
+
+//Command for checking index (means we have used indexing on our table or not)
+show index from tablename;
+
+//Syntax for dropping index
+Alter table table_name drop index index_name;
