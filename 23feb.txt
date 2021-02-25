@@ -1,0 +1,38 @@
+// Create new table and copy data from old table to new table 
+
+-> create table new_table as select * from oldtable;
+
+//  Write a query to find the names of employees that begin with ‘S’
+	Select empfname from employeeinfo whene empfname like ("s%");
+
+// Write a query find number of employees whose DOB is between 02/05/1970 to 31/12/1975 and are grouped according to gender
+select count(*) as Number_of_Employee from employeeinfo where DOB between "02/05/2019" and "31/12/1975" order by gender;
+
+// Write a query to fetch the department-wise count of employees sorted by department’s count in ascending order.
+select department, count(empid) from employeeinfo group by department order by department asc;
+
+//Write a SQL query to retrieve employee details from EmployeeInfo table who have a date of joining in the EmployeePosition table.
+SELECT * FROM EmployeeInfo E 
+WHERE EXISTS 
+(SELECT * FROM EmployeePosition P WHERE E.EmpId = P.EmpId);
+
+//Select Nth highest salary without using top/limit keyword.
+select salary from employeeposition e1 where N-1=(select count(distinct(e2.salary)) from employeeposition e2 where e2.salary>e1.salary
+ ) order by e1.salary desc;
+
+
+// Select Nth highest salary using top/limit clause
+
+>First way
+select salary from employeeposition order by salary limit N-1,1;
+
+>Other Way
+select salary from (select salary from employeeposition order by salary desc limit N) as T order by t.salary limit 1;
+
+//Write a query to fetch 50% records from the EmployeeInfo table.
+select * from employeeinfo where empid<=(select count(Empid)/2 from employeeinfo);
+
+
+//Selecting Current date and time
+1. select now();
+2. select sysdate();

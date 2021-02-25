@@ -1,0 +1,23 @@
+// Syntaxe for creating procedure
+Firstly we have to set delimeiter before creating procedure
+After closing our delimiter we have to again set default delimeter
+Delimiter //
+create procedure sp_name(argument(optional))
+begin (just like open curly braces)
+code goeas here.....
+end (just like closing curlybraces)
+//
+
+Delimeter ;(Default delimiter)
+Example
+Delimiter //
+create procedure getEmployeeinfo()
+begin
+select * from employeeinfo;
+end //
+delimiter ;
+//Systax for calling procedure procedure
+ CALL procedurename ;
+Example -> CALL getEmployeeinfo();
+
+
